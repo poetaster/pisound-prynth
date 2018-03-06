@@ -28,7 +28,14 @@ The scripts are organized in subfolders as they exist in my context. That is a p
   *  next go through the usual steps of installing pisound as blokaslabs documents.
   *  install the clicks.sh script from this repo
   *  install the supercollider node_js app.js from this repo. You can use the unmodified app, too. I just turn of serial<->osc stuff and tweak jack.
-  *  install the supercollider scripts /home/pi/prynth/server/public/supercolliderfiles/ button clicks load 1.scd, 2.scd, etc. default.scd is, well, default.
+  *  install the supercollider scripts from this repo in /home/pi/prynth/server/public/supercolliderfiles/ 
+  *  now clicks load 1.scd, 2.scd, etc. default.scd is, well, default. default.scd loads 1.scd.
   *  install some quarks I use the examples: CCIn (for midi) and Feedback. use Quark.install('Name'). I actually put the quarks in the /root/.local/share/SuperCollider/quarks. This is not good. But, the beta of prynth is running the node app as root. sigh. 
 
+# Notes on the sc scripts.
+
+  *  1.scd is a feedback pitchshift hack. basically, the input is pitchshifted and that shifted audio is used as feedback :) midi cc is used to control the pitchshifter and feedback. 
+  *  2.scd is a stutter effect, controlled by midi cc. Audio input is stuttered.
+  *  3.scd is a simple 1 line synth cribbed from twitter :)
+  *  4.scd is a manic harmonizer with reverb. also controlled by midi cc.
 
