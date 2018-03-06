@@ -1,0 +1,1 @@
+play{GVerb.ar(VarSaw.ar(Duty.ar(1/5,0,Dseq(a=[[4,4.5],[2,3,5,6]];flat(a*.x allTuples(a*.x a)*4).clump(2)++0)),0,0.9)*LFPulse.ar(5),99,5)/5}
