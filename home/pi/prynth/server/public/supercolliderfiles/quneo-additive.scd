@@ -68,7 +68,8 @@ s.waitForBoot({
 		func: {arg vel, note;
 			notes[note].set(\gate,0);
 			notes.put(note, nil);
-		//("Note OFF "++ note).postln;},
+		//("Note OFF "++ note).postln;
+                },
 		chan: ~quNeoChannel);
 
 	MIDIdef.cc(
