@@ -1,12 +1,12 @@
 // ************************************
 // Additive Synthesis Demo with QuNEO
 // Patch 1 - Harmonic Series
-// Bruno Ruviaro, 2013-07-22
+// based on patch by http://sccode.org/1-4UO Bruno Ruviaro, 2013-07-22
+// this version, blueprint@poetaster.de
 // ************************************
 
 /*
 Use QuNEO SCLOrk Preset #1 for piano-like play
-Use QuNEO SCLOrk Preset #2 for toggle-like play
 
 Pads play 16 first partials of the harmonic series:
 
@@ -16,9 +16,12 @@ Pads play 16 first partials of the harmonic series:
 01 02 03 04
 
 Long Slider controls fundamental frequency
-
 Vertical Sliders control ADSR envelope
+Top two horizontal sliders control the frequency and the resonance of a filter.
 
+The pad note and velocity control the usual factors. 
+The pad x / y control values controll the frequency and depth of modulation.
+The pad pressure controls the add amount of the lfo from x/y and also the resonance of the filter.
 */
 
 s.waitForBoot({
@@ -65,7 +68,7 @@ s.waitForBoot({
 		func: {arg vel, note;
 			notes[note].set(\gate,0);
 			notes.put(note, nil);
-		("Note OFF "++ note).postln;},
+		//("Note OFF "++ note).postln;},
 		chan: ~quNeoChannel);
 
 	MIDIdef.cc(
@@ -87,7 +90,7 @@ s.waitForBoot({
 	MIDIdef.cc(
 		key: \synAmp,
 		func: {arg val, ccnum, n;
-			n = (ccnum - 23).linlin(1,48,1,16).round ; // lin
+			n = (ccnum - 23).linlin(1,48,1,16).round ; // map the pressure controller to it's note.
 			n = n + 35 ; // offset to 36
 			//("cc is "++ ccnum).postln;
 			notes[n].set(\vibAdd,  val.linlin(0, 127, 0.1, 0.6));
@@ -100,7 +103,7 @@ s.waitForBoot({
 	MIDIdef.cc(
 		key: \vibF,
 		func: {arg val, ccnum, n;
-			n = (ccnum - 23).linlin(1,48,1,16).round ; // lin
+			n = (ccnum - 23).linlin(1,48,1,16).round ; // map the x controller to vibrato freq
 			n = n + 35 ; // offset to 36
 			//("Note is "++ n).postln;
 			notes[n].set(\vibFreq,  val.linlin(0, 127, 0.05, 0.99));
@@ -111,7 +114,7 @@ s.waitForBoot({
 		MIDIdef.cc(
 		key: \vibA,
 		func: {arg val, ccnum, n;
-			n = (ccnum - 23).linlin(1,48,1,16).round ; // lin
+			n = (ccnum - 23).linlin(1,48,1,16).round ; // map the y controller to the vibrato depth
 			n = n + 35 ; // offset to 36
 			//a("note is " ++ n).postln;
 			notes[n].set(\vibAmp, val.linlin(0, 127, 0.1, 0.5));
