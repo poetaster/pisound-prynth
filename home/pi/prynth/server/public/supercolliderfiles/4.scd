@@ -22,15 +22,14 @@ SynthDef.new(\pitchFollow,{
 	//midinum.postln;
     //freq = Lag.kr(midinum.midicps, 0.01);
 	//freq = midinum.midicps;
-	harmony2= midinum - 3 / 127;
+	harmony2= (midinum - 12) / 127;
 	//harmony2 = m.kr(0,0,q);
 	//harmony2 = midi
-	harmony = midinum - 5 / 127;
+	harmony = (midinum +12) / 127;
 	//harmony = m.kr(0,1,g);
 	partials = [
-		   m.kr(0,2,f),
-		   m.kr(0,3,f),
-		   m.kr(0,4,f),
+	       harmony,
+		   harmony2,
 		   m.kr(0,2,f)*harmony,
 		   m.kr(0,3,f)*harmony,
 		   m.kr(0,4,f)*harmony,
@@ -40,11 +39,11 @@ SynthDef.new(\pitchFollow,{
 	];
 	out = Mix.new(PitchShift.ar(in, 0.2, partials,  m.kr(0,0,p),  m.kr(0,1,t) ));
     out = XFade2.ar(out!2, GVerb.ar(BPF.ar(out, 90.midicps), roomsize:40, revtime:m.kr(0,6,n), drylevel:0.5), 0.2);
-	
+	/*
     7.do({
 		out = AllpassN.ar(out, 0.040, [0.040.rand,0.040.rand], 2);
     });
-	
-	Out.ar(0,(out/partials.size))
+	*/
+	Out.ar(0,(out/partials.size)+SoundIn.ar([0,1])*0.2)
 
 }).play;

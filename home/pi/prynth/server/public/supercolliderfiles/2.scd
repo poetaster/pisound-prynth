@@ -1,3 +1,6 @@
+
+//Quarks.install("CCIn");
+
 m = CCIn();
 v = [300, 700, \exp].asSpec;
 g = [0.01, 0.4, \exp].asSpec;

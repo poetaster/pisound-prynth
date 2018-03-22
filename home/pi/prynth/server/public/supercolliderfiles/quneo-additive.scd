@@ -76,10 +76,10 @@ s.waitForBoot({
 		key: \adsr,
 		func: {arg val, ccnum;
 			case
-			{ccnum==6} {~att = val.linlin(0, 127, 0.01, 2)}
-			{ccnum==7} {~dec = val.linlin(0, 127, 0.05, 1)}
-			{ccnum==8} {~sus = val.linlin(0, 127, 0.25, 1)}
-			{ccnum==9} {~rel = val.linlin(0, 127, 0.5, 2)}
+			{ccnum==6} {~att = val.linlin(0, 127, 0.01, 3)}
+			{ccnum==7} {~dec = val.linlin(0, 127, 0.05, 2)}
+			{ccnum==8} {~sus = val.linlin(0, 127, 0.25, 2)}
+			{ccnum==9} {~rel = val.linlin(0, 127, 0.5, 3)}
 			{ccnum==0} {~lpfFreq = val.linlin(0, 127, 0.1, 1.0)}
 			{ccnum==1} {~lpfRes = val.linlin(0, 127, 0.0, 2.0)};
 			[~att, ~dec, ~sus, ~rel, ~lpfFreq, ~lpfRes].round(0.01).postln},
