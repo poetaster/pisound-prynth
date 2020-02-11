@@ -2,18 +2,17 @@
 
 Button scripts for the pisound raspberry pi audio card running on prynth supercollider with setups and scripts
 
-PLEASE NOTE, prynthhas a much more recent (2019) release and I've not yet been able to test everything. The image I note below is still available, but the new version offers a good deal more, especially if you are interested in the prynth hardware. If not and primarilly in pisound + super collider, you're good with this approach, you now. I'm working on it :)
+PLEASE NOTE, prynth has a much more recent (2019) release and I've not yet been able to test everything. The image I note below is still available, but the new version offers a good deal more, especially if you are interested in the prynth hardware. If not and primarilly in pisound + super collider, you're good with this approach. I'm working with it :)
 
 # Introduction
 
-Most of this is ad hoc, experimenting with the prynth system on a rasbperry pi 3 with a pisound audio card. The prynth system currently is based on supercollider 3.9 with a web front end featuring supercolliderjs ... you got. Light weight direct control of sclang with websockets.... 
+Most of this is ad hoc, experimenting with the prynth system on a rasbperry pi 3 with a pisound audio card. The prynth system currently is based on supercollider 3.9 with a web front end featuring supercolliderjs. Light weight direct control of sclang with websockets.... 
 
-Find the pisound audio card at https://blokas.io ... buy it. It's a high quality, reliable card. The images for general use (puredata) are augmented by a complete moddep images. It's great! 
+Find the pisound audio card at https://blokas.io ... buy it. It's a high quality, reliable card. The images for general use (puredata) are augmented by complete moddep images. It's great! 
 
 You can find the prynth image (I'm using the 2017-09 image) here:
 https://prynth.github.io/create/downloads.html
 
-Please note, this is usable, very much so, but a new image is due in the next month which addresses a bunch of issues. Most of those issues are of no concern to me:)
 
 # Contents
 The thing works remarkably well :) What this repo contains:
